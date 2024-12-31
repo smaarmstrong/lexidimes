@@ -1,0 +1,30 @@
+repos:
+-   repo: https://gitlab.com/vojko.pribudic.foss/pre-commit-update
+    rev: v0.6.1
+    hooks:
+    -   id: pre-commit-update
+        args: [--dry-run]
+
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+
+-   repo: https://github.com/realm/SwiftLint
+    rev: 0.57.1
+    hooks:
+    -   id: swiftlint
+        name: swiftlint-fix
+        args: [--fix, --format]  # Auto-fix issues
+    -   id: swiftlint
+        name: swiftlint-strict
+        args: [--strict]  # Enforce warnings as errors
+
+-   repo: https://github.com/codespell-project/codespell
+    rev: v2.3.0
+    hooks:
+    -   id: codespell
+        args:
+            - -L crate
